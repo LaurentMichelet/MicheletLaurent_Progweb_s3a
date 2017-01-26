@@ -8,17 +8,17 @@
 module.exports = {
 
     moncompte: function(req, res) {
+
     var data = {};
+    var where = {id: req.user.id};
 
-     data.mesdata = {
-         title: "le titre",
-         content: "le contenu"
-     };
-
-     data.user=req.user;
-     console.log(req.user);
-
-     return res.view("moncompte", data);
-     },
+     User.findOne(where)
+        .populate('adresses')
+        .exec(function(error, user){
+          console.log(user);
+          data.user = user;
+          return res.view('moncompte', data);
+        });
+     }
 };
 

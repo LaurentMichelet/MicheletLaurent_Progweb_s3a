@@ -19,12 +19,17 @@ module.exports = {
             minLength: 6,
             required: true
         },
+        adresses: {
+                collection: 'adress',
+                via: 'owner'
+        },
         toJSON: function() {
             var obj = this.toObject();
             delete obj.password;
             return obj;
         }
     },
+
     beforeCreate: function(user, cb) {
         bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(user.password, salt, function(err, hash) {

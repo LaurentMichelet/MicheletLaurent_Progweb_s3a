@@ -36,6 +36,10 @@ module.exports = {
         })(req, res);
     },
 
+    signup: function(req, res){
+      res.redirect('/moncompte')
+    },
+
     logout: function(req, res) {
         req.logout();
         res.redirect('/');
