@@ -21,9 +21,6 @@
  */
 
 module.exports.routes = {
-   '/': {
-     view: 'homepage'
-   },
 
    'get /login': {
         view: 'login'
@@ -38,7 +35,12 @@ module.exports.routes = {
    },
 
    'get /moncompte': {
-           controller: 'UserController',
-           action: 'moncompte'
-      },
+       controller: 'UserController',
+       action: 'moncompte'
+   },
+
+   'post /moncompte/uploadavatar': {
+      controller: 'UserController',
+      action: 'uploadAvatar'
+   }
  };
