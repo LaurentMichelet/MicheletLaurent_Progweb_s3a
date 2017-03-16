@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="/styles/style.css">
+      <script type="text/javascript">
+        setTimeout(function sunrise () {
+          document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
+        }, 0);
+      </script>
+      <title>Participants</title>
+  </head>
+
+  <body>
+    <div class="default-page">
+    <div class="header">
+      <h1 id="main-title" class="container">Participants</h1>
+    </div>
+
+   <div class="main container clearfix">
+    <p> bien tavu</p>
+
+      <!-- Création de l'image de base pour l'orbite circulaire -->
+      <?xml version="1.0" standalone="no"?>
+      <svg width="800" height="600" style="background: transparent" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+      <rect x="1" y="1" width="400" height="400" stroke="solid blue" fill="transparent" stroke-width="5"/>
+
+      <circle cx="400" cy="300" r="100" stroke="black" fill="transparent" stroke-width="1"/>
+      <circle cx="400" cy="300" r="30" stroke="blue" fill="blue" stroke-width="5"/>
+      <circle id="lune" cx="400" cy="300" r="5" stroke="grey" fill="grey" stroke-width="5"/>
+
+      </svg>
+
+
+
+
+
+
+
+   </div>
+
+    <script src="/js/dependencies/sails.io.js"></script>
+        <script type="text/javascript">
+          //Je définis mes variable de l'objet lune, et du teta.
+          var lune;
+          var T=3;
+          //Je crée ma fonction de rotation de l'objet.
+          function rotation () {
+                  lune = document.getElementById("lune") ;
+          		lune.setAttribute("cx",400+100*Math.cos(T)) ; //Je positionne l'objet sur l'orbite grâce aux fonctions mathématiques cosinus et sinus
+          		lune.setAttribute("cy",300+100*Math.sin(T)) ;
+          		//J'anime au cours du temps mon objet.
+          		T=T+0.0035
+          		}
+          setInterval(rotation,1); //Je définis une vitesse de rotation.
+          </script>
+  </body>
+
+</html>
+
+
