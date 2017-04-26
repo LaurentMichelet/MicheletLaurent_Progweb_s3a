@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type='text/css' href="../assets/styles/style.css">
+  <title>Javascript</title>
+</head>
+
+<body onload="pageLoaded()">
+  <div class="header">
+    <h1 id="main-title" class="container">JavaScript</h1>
+  </div>
+
+  <div > Le bon test</div>
+
+    <?xml version="1.0" standalone="no"?>
+    <svg width="800" height="600" style="background: transparent" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+      <rect x="1" y="1" width="400" height="400" stroke="solid blue" fill="transparent" stroke-width="5"/>
+
+      <circle cx="400" cy="300" r="100" stroke="black" fill="transparent" stroke-width="1"/>
+      <circle cx="400" cy="300" r="30" stroke="blue" fill="blue" stroke-width="5"/>
+      <circle id="lune" cx="400" cy="300" r="5" stroke="grey" fill="grey" stroke-width="5"/>
+
+    </svg>
+
+
+    <?xml version="1.0" standalone="no"?>
+    <svg width="800" height="600" style="background: transparent" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+      <rect x="1" y="1" width="400" height="400" stroke="solid blue" fill="transparent" stroke-width="5"/>
+
+      <ellipse cx="400" cy="300" rx=190 ry=140 stroke="black" fill="transparent" stroke-width="1"/>
+      <circle id="terre" cx="400" cy="300" r="30" stroke="blue" fill="blue" stroke-width="5"/>
+      <circle id="lune2" cx="200" cy="300" r="5" stroke="grey" fill="grey" stroke-width="5"/>
+
+    </svg>
+
+  </div>
+
+  <script src="/js/dependencies/sails.io.js"></script>
+  <script type="text/javascript">
+          //Je définis mes variable de l'objet lune, et du teta.
+          var lune;
+          var T=3;
+          //Je crée ma fonction de rotation de l'objet.
+          function rotation () {
+                  lune = document.getElementById("lune") ;
+          		lune.setAttribute("cx",400+100*Math.cos(T)) ; //Je positionne l'objet sur l'orbite grâce aux fonctions mathématiques cosinus et sinus
+          		lune.setAttribute("cy",300+100*Math.sin(T)) ;
+          		//J'anime au cours du temps mon objet.
+          		T=T+0.0035
+          		}
+          setInterval(rotation,1); //Je définis une vitesse de rotation.
+          </script>
+
+  <script type="text/javascript">
+       //Je définis mes variable de l'objet lune,terre, et du teta.
+      var lune2;
+      var terre;
+      var T=3;
+      var a = 190; //a est le grand axe
+      var b = 140; //b est le petit axe
+      var c = Math.sqrt(Math.pow(a, 2)-Math.pow(b, 2)) //c distance foyer au centre de l'ellipse
+      var x0 = c+200 // coordonnées de l'astre attracteur
+      var y0 = 200
+      //Je crée ma fonction de rotation de l'objet.
+      function elliptique () {
+      lune2 = document.getElementById("lune2") ;
+      var x = 400+a*Math.cos(T);
+      var y = 300+b*Math.sin(T);
+      var r = Math.sqrt(Math.pow(x-x0, 2)+Math.pow(y-y0, 2))
+      lune2.setAttribute("cx",x) ; //Je positionne l'objet sur l'orbite grâce aux
+      lune2.setAttribute("cy",y) ; //fonctions mathématiques cosinus et sinus
+      //J'anime mon objet au cours du temps.
+      T=T+0.0035
+      }
+      setInterval(elliptique,1); //Je définis une vitesse de rotation.*
+      function excentricite() {
+      terre = document.getElementById("terre") ;
+      terre.setAttribute("cx",x0);
+      }
+      excentricite()
+  </script>
+
+  <script src="scriptTp2.js"></script>
+
+
+</body>
+
+</html>
+
+
