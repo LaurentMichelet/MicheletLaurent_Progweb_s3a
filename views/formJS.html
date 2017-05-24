@@ -1,0 +1,53 @@
+<!-- <html>
+
+	<form action="index.php" method="POST">
+		<input name="unevariable" type="text" />
+		<button type="button" id="req_post"> Requete post</button>
+	</form>
+
+	<form action="index.php" method="GET">
+		<input name="unevariable" type="text" />
+		<button type="button" id="req_get"> Requete get</button>
+	</form>
+
+</html>
+ -->
+
+<button type="button" id="req_post"> Requete post</button>
+<button type="button" id="req_get"> Requete get</button>
+
+<script>
+	var xhr = null;
+	initXhr();
+
+	function initXhr(){
+	    xhr= new XMLHttpRequest();
+	}
+
+	xhr.onreadystatechange= function() {
+	  if (xhr.readyState== 4 && xhr.status== 200)//xhr.status== 0 si ftp ou file
+	    maCallBack(xhr.responseText); // ou maCallback(xhr.responseXML);
+	};
+
+	function maCallBack(reponse){
+	  console.log(eval('(' + reponse + ')'));
+	}
+
+	var Post = document.getElementById("req_post");
+	var Get = document.getElementById("req_get");
+
+
+	function sendReq1() {
+	  xhr.open("get", "index.php?unevariable=testajaxget", true);
+	  xhr.send(null);
+	}
+
+	function sendReq2() {
+	  xhr.open("post", "index.php?unevariable=testajaxpost", true);
+	  xhr.send("unevariable=testajaxget");
+	}
+
+	Get.addEventListener("click", sendReq1);
+	Post.addEventListener("click", sendReq2);
+	
+</script>
